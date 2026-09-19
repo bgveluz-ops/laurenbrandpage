@@ -149,7 +149,14 @@
   }
   @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
   @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none;flex-wrap:wrap;width:auto;} }
-  .marquee-track span{font-family:"Instrument Sans",sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;}
+  .marquee-track span{display:inline-flex;align-items:center;font-family:"Instrument Sans",sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;}
+  .outlet-logo{letter-spacing:0.04em;}
+  .outlet-logo.gma,.outlet-logo.abc{font-family:Georgia,serif;font-weight:700;letter-spacing:-0.04em;text-transform:none;}
+  .outlet-logo.gma{font-size:0.98rem;}
+  .outlet-logo.abc{font-size:1.05rem;}
+  .outlet-logo.black-enterprise,.outlet-logo.business-insider{font-family:Georgia,serif;letter-spacing:-0.03em;text-transform:none;}
+  .outlet-logo.t-mobile{font-weight:800;letter-spacing:-0.02em;text-transform:none;}
+  .outlet-logo.essence,.outlet-logo.blavity{font-family:"Cormorant Garamond",serif;font-size:1rem;letter-spacing:0.02em;text-transform:none;}
 
   /* ---------- SECTION HEADERS ---------- */
   section{padding-block:clamp(52px,7vw,96px);}
@@ -163,12 +170,13 @@
   .about-grid p{font-size:0.92rem;font-weight:300;line-height:1.95;color:var(--ink);opacity:0.8;max-width:62ch;}
   .about-grid p + p{margin-top:16px;}
   .about-aside{position:sticky;top:90px;}
-  .about-aside img{width:349px;height:437px;object-fit:cover;object-position:50% 25%;}
+  .about-aside img{width:397px;height:485px;object-fit:cover;object-position:50% 25%;}
   .about-aside blockquote{
-    margin:16px 0 0;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;
-    font-size:1.22rem;line-height:1.4;color:#9a4a0b;font-weight:600;
-    width:349px;max-width:100%;background:rgba(247,246,220,0.8);border-left:3px solid #9a4a0b;padding:20px 18px;
+    margin:6px 0 0;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;
+    font-size:1.05rem;line-height:1.4;letter-spacing:0.01em;color:#f7f6dc;
+    width:420px;max-width:100%;background:transparent;border-left:0;padding:20px 18px;position:relative;
   }
+  .about-aside blockquote::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:3px;background:#9a4a0b;}
   .about-aside cite{display:block;margin-top:10px;font-style:normal;font-family:"Instrument Sans",sans-serif;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
 
   /* ---------- STATS STRIP ---------- */
@@ -186,6 +194,8 @@
   /* ---------- GALLERY ---------- */
   #room{background:#f7f6dc;color:#052d3f;}
   #room .section-head p{color:#68757a;}
+  #speaking .section-head{align-items:flex-start;flex-direction:column;gap:4px;}
+  #speaking .section-head p{margin-top:0;max-width:78ch;}
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:10px;}
   @media (max-width:760px){ .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px;} }
   .g-item{position:relative;overflow:hidden;}
@@ -213,15 +223,21 @@
   /* ---------- WORKSHOPS ---------- */
   #workshops{background:#f7f6dc !important;color:#052d3f;border-top:4px solid #9a4a0b;}
   #workshops .section-head p{color:#68757a;}
+  #workshops .section-head{align-items:flex-start;flex-direction:column;gap:4px;}
+  #workshops .section-head p{margin-top:0;max-width:70ch;}
   #workshops .section-head h2{position:relative;}
   .workshop-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:12px;background:transparent;border:0;}
-  .workshop-card{background:rgba(5,45,63,0.6);color:#052d3f;padding:2.5rem 2.2rem;display:flex;flex-direction:column;gap:10px;min-height:170px;border:1px solid rgba(247,246,220,0.2);border-top:3px solid #AE6E3C;transition:background 0.3s ease,transform 0.2s ease;}
-  .workshop-card:hover{background:rgba(5,45,63,0.78);transform:translateY(-3px);}
+  .workshop-card{background:#052d3f;color:#f7f6dc;padding:2.5rem 2.2rem;display:flex;flex-direction:column;gap:10px;min-height:170px;border:1px solid rgba(5,45,63,0.24);border-top:3px solid #AE6E3C;transition:background 0.3s ease,transform 0.2s ease;}
+  .workshop-card:nth-child(2){background:#0b3d51;}
+  .workshop-card:nth-child(3){background:#173f4a;}
+  .workshop-card:nth-child(4){background:#204c50;}
+  .workshop-card:nth-child(5){background:#2b5652;}
+  .workshop-card:hover{background:#9a4a0b;transform:translateY(-3px);}
   @media (max-width:1000px){ .workshop-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
   @media (max-width:620px){ .workshop-grid{grid-template-columns:1fr;} }
   .workshop-tag{font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:#AE6E3C;font-weight:700;}
   .workshop-title{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.08rem;line-height:1.25;color:#f7f6dc;}
-  .workshop-card .talk-desc{color:rgba(247,246,220,0.4);font-size:0.95rem;max-width:64ch;}
+  .workshop-card .talk-desc{color:rgba(247,246,220,0.82);font-size:0.95rem;max-width:64ch;}
 
   /* ---------- PRESS ---------- */
   #press{background:#E8E4DA;color:#9a4a0b;padding:8rem 2.5rem;border-top:4px solid #9a4a0b;}
@@ -296,7 +312,7 @@
       <li><a href="#press">Press</a></li>
       <li><a href="#kit">One-Pagers</a></li>
     </ul>
-    <a class="btn btn-solid nav-cta" href="mailto:lauren@intheroomwithlegacy.com">Book Lauren</a>
+    <a class="btn btn-solid nav-cta" href="https://form.typeform.com/to/EXQznDku">Book Lauren</a>
   </div>
 </nav>
 
@@ -314,7 +330,7 @@
         <div><b>150+</b><span>Years family legacy</span></div>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="mailto:lauren@intheroomwithlegacy.com">Book Lauren</a>
+        <a class="btn btn-solid" href="https://form.typeform.com/to/EXQznDku">Book Lauren</a>
         <a class="btn btn-outline" style="color:#c46a27" href="#kit">View one-pagers</a>
       </div>
     </div>
@@ -327,8 +343,8 @@
 
 <div class="marquee-band">
   <div class="marquee-track">
-    <span>Good Morning America</span><span>ABC News</span><span>NewsNation</span><span>Harvard Business School</span><span>Black Enterprise</span><span>Business Insider</span><span>T‑Mobile for Business</span><span>USPS News</span><span>Essence</span><span>HuffPost</span><span>Travel Noire</span><span>XoNecole</span><span>Blavity</span>
-    <span>Good Morning America</span><span>ABC News</span><span>NewsNation</span><span>Harvard Business School</span><span>Black Enterprise</span><span>Business Insider</span><span>T‑Mobile for Business</span><span>USPS News</span><span>Essence</span><span>HuffPost</span><span>Travel Noire</span><span>XoNecole</span><span>Blavity</span>
+    <span class="outlet-logo gma" aria-label="Good Morning America">GMA</span><span class="outlet-logo abc" aria-label="ABC News">abc</span><span class="outlet-logo" aria-label="NewsNation">NewsNation</span><span class="outlet-logo" aria-label="Harvard Business School">HBS</span><span class="outlet-logo black-enterprise" aria-label="Black Enterprise">Black Enterprise</span><span class="outlet-logo business-insider" aria-label="Business Insider">Business Insider</span><span class="outlet-logo t-mobile" aria-label="T-Mobile for Business">T-Mobile</span><span class="outlet-logo" aria-label="USPS News">USPS</span><span class="outlet-logo essence" aria-label="Essence">Essence</span><span class="outlet-logo" aria-label="HuffPost">HuffPost</span><span class="outlet-logo" aria-label="Travel Noire">Travel Noire</span><span class="outlet-logo" aria-label="XoNecole">XoNecole</span><span class="outlet-logo blavity" aria-label="Blavity">Blavity</span>
+    <span class="outlet-logo gma" aria-label="Good Morning America">GMA</span><span class="outlet-logo abc" aria-label="ABC News">abc</span><span class="outlet-logo" aria-label="NewsNation">NewsNation</span><span class="outlet-logo" aria-label="Harvard Business School">HBS</span><span class="outlet-logo black-enterprise" aria-label="Black Enterprise">Black Enterprise</span><span class="outlet-logo business-insider" aria-label="Business Insider">Business Insider</span><span class="outlet-logo t-mobile" aria-label="T-Mobile for Business">T-Mobile</span><span class="outlet-logo" aria-label="USPS News">USPS</span><span class="outlet-logo essence" aria-label="Essence">Essence</span><span class="outlet-logo" aria-label="HuffPost">HuffPost</span><span class="outlet-logo" aria-label="Travel Noire">Travel Noire</span><span class="outlet-logo" aria-label="XoNecole">XoNecole</span><span class="outlet-logo blavity" aria-label="Blavity">Blavity</span>
   </div>
 </div>
 
@@ -521,7 +537,7 @@
         <span class="pill">Private Advisory Session</span>
       </div>
       <div class="book-actions">
-        <a class="btn btn-solid" href="mailto:lauren@intheroomwithlegacy.com">Book Lauren &mdash; lauren@intheroomwithlegacy.com</a>
+        <a class="btn btn-solid" href="https://form.typeform.com/to/EXQznDku">Book Lauren &mdash; lauren@intheroomwithlegacy.com</a>
         <a class="btn btn-outline" href="#kit">Download one-pagers</a>
       </div>
     </div>
