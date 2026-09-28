@@ -88,7 +88,11 @@
   nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:14px;gap:16px;}
   .wordmark{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.05rem;letter-spacing:0.01em;text-decoration:none;color:var(--ink);white-space:nowrap;margin-left:calc(-1 * clamp(18px,4vw,56px));}
   .navlinks{display:flex;gap:clamp(10px,2.4vw,28px);font-size:0.82rem;font-weight:600;letter-spacing:0.02em;list-style:none;margin:0 1rem 0 auto;padding:0;flex-wrap:wrap;justify-content:flex-end;}
-  @media (max-width:460px){ .navlinks{font-size:0.72rem;gap:8px 12px;} .wordmark{font-size:0.92rem;} }
+  @media (max-width:460px){
+    nav .wrap{flex-wrap:wrap;gap:8px 12px;}
+    .navlinks{width:100%;margin:0;font-size:0.72rem;gap:8px 12px;flex-wrap:nowrap;justify-content:space-between;}
+    .wordmark{font-size:0.92rem;margin-left:0;}
+  }
   .navlinks a{text-decoration:none;color:var(--ink-soft);}
   .navlinks a:hover{color:var(--clay);}
   .nav-cta{display:none;}
@@ -267,6 +271,16 @@
   @media (max-width:760px){ .quote-grid{grid-template-columns:1fr;} }
   .big-quote{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(1.1rem,1.7vw,1.35rem);line-height:1.45;}
   .big-quote cite{display:block;font-family:"Instrument Sans",sans-serif;font-style:normal;font-size:0.74rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:14px;}
+  .testimonial-section{background:var(--paper-2);border-block:1px solid var(--line);padding-block:clamp(48px,7vw,88px);}
+  .testimonial-card{position:relative;max-width:1000px;margin:0 auto;padding:clamp(24px,4vw,48px);border-top:3px solid var(--clay);background:color-mix(in srgb,var(--paper) 82%,white);box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease;}
+  .testimonial-card:hover,.testimonial-card:focus-within{transform:translateY(-4px);box-shadow:0 24px 48px -24px rgba(5,45,63,.42);}
+  .testimonial-topline{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;}
+  .testimonial-mark{font-family:"Cormorant Garamond",serif;font-size:3.5rem;line-height:.7;color:var(--clay);}
+  .testimonial-quote{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.5rem,2.5vw,2.2rem);line-height:1.24;margin:0;color:var(--ink);font-style:italic;}
+  .testimonial-footer{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-top:1px solid var(--clay);padding-top:16px;margin-top:24px;font-size:.8rem;letter-spacing:.04em;color:var(--ink-soft);}
+  .testimonial-footer strong{display:block;color:var(--ink);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+  @media(max-width:560px){.testimonial-footer{align-items:flex-start;flex-direction:column;gap:14px}}
+  @media(prefers-reduced-motion:reduce){.testimonial-card{transition:none}.testimonial-card:hover,.testimonial-card:focus-within{transform:none}}
 
   /* ---------- ONE-PAGERS ---------- */
   .kit{background:#f7f6dc;color:#052d3f;border-top:4px solid #9a4a0b;}
@@ -301,6 +315,15 @@
   .fmt-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;}
   footer{border-top:1px solid var(--line);padding-block:26px;}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.76rem;color:var(--ink-soft);}
+  @media(max-width:620px){
+    #press{padding-inline:0;}
+    .about-aside{position:static;width:100%;min-width:0;}
+    .about-aside img{width:100%;height:auto;aspect-ratio:397/485;}
+    .about-aside blockquote{width:100%;}
+    .book h2{white-space:normal !important;font-size:clamp(1.8rem,8vw,2.4rem) !important;line-height:1.05;}
+    .book-actions{flex-direction:column;align-items:stretch;flex-wrap:wrap;}
+    .book-actions .btn{white-space:normal;justify-content:center;text-align:center;}
+  }
 </style>
 
 <nav>
@@ -469,12 +492,21 @@
   </div>
 </section>
 
-<section style="background:var(--paper-2);border-block:1px solid var(--line);">
+<section class="testimonial-section">
   <div class="wrap">
-    <div class="quote-grid">
-      <blockquote class="big-quote">&ldquo;It felt like a sermon. She spoke to things we all knew but had never heard named out loud &mdash; about our families, our history, what we&rsquo;ve been carrying without realizing it was worth something.&rdquo;<cite>Faith community talk, audience response</cite></blockquote>
-      <blockquote class="big-quote">&ldquo;Your employees are building wealth &mdash; many for the first time in their families. Without intention, that wealth stops with them. Lauren gives them a framework for making it last.&rdquo;<cite>Corporate L&amp;D partner</cite></blockquote>
-    </div>
+    <blockquote class="testimonial-card">
+      <div class="testimonial-topline">
+        <span class="eyebrow">A note from the room</span>
+        <span class="testimonial-mark" aria-hidden="true">&ldquo;</span>
+      </div>
+      <p class="testimonial-quote">&ldquo;Lauren would make an excellent keynote for your workshop or event. She embodies a deep knowledge and lived experience that lends authority to messages on leadership, change management, and strategy and innovation.&rdquo;</p>
+      <footer class="testimonial-footer">
+        <div>
+          <strong>Ashley Williams, MPA</strong>
+        Deputy Director, DC Department of Parks and Recreation
+        </div>
+      </footer>
+    </blockquote>
   </div>
 </section>
 
