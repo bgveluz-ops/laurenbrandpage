@@ -101,47 +101,57 @@
   /* ---------- HERO ---------- */
   .hero{background:#000000;color:var(--paper);position:relative;overflow:clip;}
   .hero-grid{
-    display:grid;grid-template-columns: 1.05fr 0.95fr;
+    display:block;position:relative;min-height:clamp(700px,calc(100svh - 72px),900px);
     background:var(--ink);
-    min-height:0;
   }
-  @media (max-width:880px){ .hero-grid{grid-template-columns:1fr;} }
   .hero-copy{
-    padding:clamp(40px,6vw,88px) clamp(20px,5vw,64px);
-    display:flex;flex-direction:column;justify-content:center;gap:22px;
-    position:relative;
+    position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:22px;
+    width:min(760px,62%);min-height:clamp(700px,calc(100svh - 72px),900px);
+    padding:clamp(40px,6vw,88px) clamp(20px,7vw,100px);
   }
-  .hero-copy .eyebrow{color:#9a4a0b;}
-  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:0.98;color:#052d3f;}
+  .hero-copy .eyebrow{color:#e3b18c;font-size:.66rem;letter-spacing:.08em;white-space:nowrap;}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:0.98;color:#f7f6dc;}
   .hero-role{
-    font-size:0.92rem;font-weight:600;letter-spacing:0.03em;
-    color:#9a4a0b;
-    opacity:0.8;
+    font-size:0.7rem;font-weight:600;letter-spacing:0.01em;white-space:nowrap;
+    color:#f7f6dc;
+    opacity:0.92;
     text-transform:uppercase;font-size:0.78rem;
   }
   .hero-quote{
     font-family:"Cormorant Garamond",serif;font-weight:500;font-style:italic;
     font-size:clamp(1.15rem,2vw,1.5rem);
-    line-height:1.35;color:#052d3f;
+    line-height:1.35;color:#f7f6dc;
     border-left:3px solid var(--clay);padding-left:18px;
     max-width:48ch;margin-left:0;margin-right:0;
   }
   .hero-stats{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:4px;}
   .hero-stats div{display:flex;flex-direction:column;}
-  .hero-stats b{font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:700;color:#052d3f;font-variant-numeric:tabular-nums;}
-  .hero-stats span{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:#9a4a0b;}
+  .hero-stats b{font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:700;color:#f7f6dc;font-variant-numeric:tabular-nums;}
+  .hero-stats span{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:#ead7c5;}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
-  .hero-photo{position:relative;min-height:420px;}
-  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;}
+  .hero-photo{position:absolute;inset:0;z-index:0;min-height:100%;overflow:hidden;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:62% 22%;}
   .hero-photo::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(20,20,24,0) 55%, rgba(20,20,24,0.55) 100%);
+    background:linear-gradient(90deg,rgba(5,24,31,.72) 0%,rgba(5,24,31,.56) 42%,rgba(5,24,31,.16) 75%,rgba(5,24,31,.04) 100%),linear-gradient(0deg,rgba(5,24,31,.22),transparent 58%);
   }
-  @media (max-width:880px){ .hero-photo{min-height:56vh;} }
   .hero-photo-cap{
-    position:absolute;left:18px;bottom:16px;z-index:2;
+    position:absolute;right:clamp(18px,4vw,56px);bottom:16px;z-index:2;
     font-size:0.72rem;color:#f7f6dc;letter-spacing:0.04em;
     font-weight:500;
+  }
+  @media(max-width:620px){
+    .hero-grid,.hero-copy{min-height:calc(100svh - 92px);}
+    .hero-copy{width:100%;justify-content:flex-end;gap:16px;padding:38px 22px 58px;}
+    .hero-copy .eyebrow{white-space:normal;}
+    .hero h1{font-size:clamp(2.8rem,12vw,4.1rem);}
+    .hero-role{white-space:normal;line-height:1.55;}
+    .hero-quote{font-size:1.22rem;line-height:1.32;border-left-color:#d28a4b;}
+    .hero-stats{gap:12px 22px;}
+    .hero-photo img{object-position:58% 20%;}
+    .hero-photo::after{background:linear-gradient(180deg,rgba(5,24,31,.16) 0%,rgba(5,24,31,.3) 34%,rgba(5,24,31,.68) 100%);}
+    .hero-photo-cap{left:22px;right:auto;bottom:12px;font-size:.65rem;}
+    .hero-ctas .btn-outline{color:#f7f6dc !important;border-color:rgba(247,246,220,.75);}
   }
 
   /* ---------- MARQUEE ---------- */
@@ -185,15 +195,16 @@
 
   /* ---------- STATS STRIP ---------- */
   .stats-strip{background:var(--paper-2);border-block:1px solid var(--line);}
-  .stats-grid{display:grid;grid-template-columns:repeat(6,1fr);}
-  @media (max-width:900px){ .stats-grid{grid-template-columns:repeat(3,1fr);} }
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);}
+  @media (max-width:900px){ .stats-grid{grid-template-columns:repeat(3,1fr);} .stats-grid .stat-tile:last-child{grid-column:span 2;} }
   @media (max-width:520px){ .stats-grid{grid-template-columns:repeat(2,1fr);} }
   .stat-tile{padding:26px 18px;border-right:1px solid var(--line);text-align:left;}
-  .stats-grid .stat-tile:last-child, .stats-grid .stat-tile:nth-child(3n){border-right:none;}
-  @media (max-width:900px){ .stats-grid .stat-tile:nth-child(3n){border-right:1px solid var(--line);} .stats-grid .stat-tile:nth-child(3n+3){border-right:none;} }
+  .stats-grid .stat-tile:last-child{border-right:none;}
+  @media (max-width:900px){ .stats-grid .stat-tile:nth-child(3n){border-right:none;} }
   @media (max-width:520px){ .stats-grid .stat-tile{border-right:1px solid var(--line) !important;} .stats-grid .stat-tile:nth-child(2n){border-right:none !important;} }
   .stat-tile b{display:block;font-family:"Cormorant Garamond",serif;font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:700;font-variant-numeric:tabular-nums;color:var(--clay);}
   .stat-tile span{font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
+  .stats-grid .stat-tile:last-child span{white-space:nowrap;}
 
   /* ---------- GALLERY ---------- */
   #room{background:#f7f6dc;color:#052d3f;}
@@ -397,8 +408,7 @@
       <div class="stat-tile"><b>25K+</b><span>Community built</span></div>
       <div class="stat-tile"><b>5th Gen</b><span>Entrepreneur</span></div>
       <div class="stat-tile"><b>150+ yrs</b><span>Family legacy &amp; land</span></div>
-      <div class="stat-tile"><b>$20B+</b><span>Procurement analyzed</span></div>
-      <div class="stat-tile"><b>250+</b><span>Client engagements</span></div>
+      <div class="stat-tile"><b>9 years</b><span>Second-generation leadership</span></div>
     </div>
   </div>
 </div>
