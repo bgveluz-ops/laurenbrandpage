@@ -44,7 +44,7 @@
   }
 
   *{box-sizing:border-box;}
-  html,body{width:100vw;max-width:100vw;margin:0;padding:0;overflow-x:clip;}
+  html,body{width:100vw;max-width:100vw;margin:0;padding:0;overflow-x:hidden;}
   body{
     width:100%;
     max-width:100%;
@@ -58,7 +58,7 @@
   img{max-width:100%;display:block;}
   a{color:inherit;}
   h1,h2,h3{font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; margin:0; text-wrap:balance;}
-  .wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:clamp(18px,4vw,56px);}
+  .wrap{width:100%;max-width:1180px;min-width:0;margin-inline:auto;padding-inline:clamp(18px,4vw,56px);}
   .eyebrow{
     font-family:"Instrument Sans",sans-serif;
     font-size:0.72rem;
@@ -323,7 +323,7 @@
   @media(max-width:760px){
     nav .wrap{flex-wrap:wrap;padding-block:12px;}
     .hero-grid{min-height:560px;}
-    .hero-copy{width:100%;min-height:0;padding:64px 24px 72px;gap:16px;}
+    .hero-copy{width:100%;max-width:100%;min-width:0;min-height:0;padding:64px 24px 72px;gap:16px;}
     .hero-copy .eyebrow{font-size:.62rem;}
     .hero-role{font-size:.72rem;}
     .about-grid{grid-template-columns:1fr;gap:24px;}
@@ -343,6 +343,7 @@
     #press{padding-inline:0;}
     .press-grid{grid-template-columns:1fr;}
     .book-grid{gap:24px;}
+    .testimonial-footer{flex-wrap:wrap;align-items:flex-start;gap:12px;}
     .book-grid h2{white-space:normal !important;}
     .book-grid .btn{white-space:normal;}
     .book-actions{flex-wrap:wrap;}
