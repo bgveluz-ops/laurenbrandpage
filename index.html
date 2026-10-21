@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=1200">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lauren Rosa Miller</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
@@ -297,6 +297,51 @@
     .fmt-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;}
   footer{border-top:1px solid var(--line);padding-block:26px;}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.76rem;color:var(--ink-soft);}
+  @media(max-width:760px){
+    html{width:100vw;max-width:100vw;overflow-x:clip;}
+    body{width:100%;max-width:100%;overflow-x:clip;}
+    nav .wrap{flex-wrap:wrap;padding-block:12px;}
+    .wordmark{margin-left:0;}
+    .navlinks{width:100%;justify-content:space-between;margin:0;padding-top:4px;gap:8px;}
+    .hero-grid,.hero-copy{min-height:720px;}
+    .hero-copy{width:100%;padding:96px 24px 112px;}
+    .hero-copy .eyebrow,.hero-role{white-space:normal;}
+    .hero-copy .eyebrow{font-size:.62rem;}
+    .hero-role{font-size:.72rem;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-grid > div,.about-aside{min-width:0;}
+    .about-aside{position:static;}
+    .about-aside img{width:100%;max-width:397px;height:auto;aspect-ratio:397/485;}
+    .about-aside blockquote{width:auto;}
+    .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:16px;}
+    .stats-grid .stat-tile:last-child{grid-column:1/-1;}
+    .stats-grid .stat-tile:last-child span{white-space:normal;}
+    #room .section-head p{max-width:100%;white-space:normal;}
+    .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:160px;}
+    .workshop-grid,.kit-grid,.book-grid{grid-template-columns:1fr;}
+    #press{padding-inline:0;}
+    .press-grid{grid-template-columns:1fr;}
+    .book-grid{gap:24px;}
+    .book-grid h2{white-space:normal !important;}
+    .book-grid .btn{white-space:normal;}
+    .book-actions{flex-wrap:wrap;}
+  }
+  @media(max-width:480px){
+    section{padding-block:48px;}
+    .wrap{padding-inline:20px;}
+    .navlinks{font-size:.74rem;}
+    .hero-copy{padding-inline:20px;}
+    .hero-stats{gap:10px 18px;}
+    .stats-grid{gap:0;padding:12px 16px;}
+    .stat-tile{padding:16px 10px;border-right:0;border-bottom:1px solid rgba(5,45,63,0.22);}
+    .stat-tile:nth-child(odd){border-right:1px solid rgba(5,45,63,0.22);}
+    .stats-grid .stat-tile:last-child{border-bottom:0;}
+    .gallery-grid{grid-template-columns:1fr;grid-auto-rows:220px;}
+    .g-item.wide,.g-item.tall{grid-column:auto;grid-row:auto;}
+    #press{padding-block:56px;}
+    #press .wrap{padding-inline:20px;}
+    .book-actions{align-items:flex-start;}
+  }
             </style>
 
 <nav>
