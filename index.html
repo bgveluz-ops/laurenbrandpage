@@ -20,7 +20,7 @@
 
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-  html,body{width:100%;max-width:100%;margin:0;padding:0;overflow-x:hidden;}
+  html,body{width:100%;max-width:100%;margin:0;padding:0;overflow-x:hidden;overflow-x:clip;}
   body{
     width:100%;
     max-width:100%;
@@ -117,7 +117,7 @@
   }
   
   /* ---------- MARQUEE ---------- */
-  .marquee-band{background:#f7f6dc;color:#052d3f;overflow:hidden;border-bottom:1px solid var(--line);}
+  .marquee-band{background:#f7f6dc;color:#052d3f;overflow:hidden;width:100%;max-width:100%;contain:paint;border-bottom:1px solid var(--line);}
   .marquee-track{
     display:flex;gap:48px;white-space:nowrap;padding-block:12px;
     width:max-content;
