@@ -583,7 +583,7 @@
       <article class="ways-card">
         <h3>Media &amp; Partnerships</h3>
         <p>Podcast interviews, editorial commentary, collaborative programming, and institutional partnerships centered on family, wealth, entrepreneurship, and legacy.</p>
-        <a class="btn btn-solid" href="mailto:lauren@intheroomwithlegacy.com?subject=Media%20and%20Partnership%20Inquiry">Explore Partnerships</a>
+        <a class="btn btn-solid" data-gmail-fallback href="mailto:amedina@theampragency.com?subject=Media%20and%20Partnership%20Inquiry">Explore Partnerships</a>
       </article>
     </div>
   </div>
@@ -702,3 +702,26 @@
     <span>intheroomwithlegacy.com</span>
   </div>
 </footer>
+
+<script>
+  // Try the mail app first; if the page keeps focus (no mail app), open Gmail compose.
+  document.querySelectorAll('a[data-gmail-fallback]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var url = new URL(link.href);
+      var to = url.pathname;
+      var subject = url.searchParams.get('subject') || '';
+      var gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) + '&su=' + encodeURIComponent(subject);
+      var left = false;
+      var mark = function(){ left = true; };
+      window.addEventListener('blur', mark, {once:true});
+      document.addEventListener('visibilitychange', mark, {once:true});
+      window.location.href = link.href;
+      setTimeout(function(){
+        window.removeEventListener('blur', mark);
+        document.removeEventListener('visibilitychange', mark);
+        if (!left) window.open(gmail, '_blank', 'noopener');
+      }, 1200);
+    });
+  });
+</script>
