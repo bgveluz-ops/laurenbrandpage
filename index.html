@@ -71,7 +71,6 @@
   .navlinks{display:flex;gap:clamp(10px,2.4vw,28px);font-size:0.82rem;font-weight:600;letter-spacing:0.02em;list-style:none;margin:0 1rem 0 auto;padding:0;flex-wrap:wrap;justify-content:flex-end;}
     .navlinks a{text-decoration:none;color:var(--ink-soft);}
   .navlinks a:hover{color:var(--clay);}
-  .nav-cta{display:none;}
   
   /* ---------- HERO ---------- */
   .hero{background:#000000;color:var(--paper);position:relative;overflow:clip;}
@@ -87,7 +86,7 @@
   .hero-copy .eyebrow{color:#e3b18c;font-size:.66rem;letter-spacing:.08em;white-space:nowrap;}
   .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:0.98;color:#f7f6dc;}
   .hero-role{
-    font-size:0.7rem;font-weight:600;letter-spacing:0.01em;white-space:nowrap;
+    font-size:0.7rem;font-weight:600;letter-spacing:0.01em;
     color:#f7f6dc;
     opacity:0.92;
     text-transform:uppercase;font-size:0.78rem;
@@ -126,6 +125,7 @@
   @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
   @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none;flex-wrap:wrap;width:auto;} }
   .marquee-track span{display:inline-flex;align-items:center;font-family:"Instrument Sans",sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;}
+  .marquee-track .marquee-label{color:#9a4a0b;font-size:0.65rem;letter-spacing:0.1em;}
   .outlet-logo{letter-spacing:0.04em;}
   .outlet-logo.gma,.outlet-logo.abc{font-family:Georgia,serif;font-weight:700;letter-spacing:-0.04em;text-transform:none;}
   .outlet-logo.gma{font-size:0.98rem;}
@@ -136,6 +136,7 @@
 
   /* ---------- SECTION HEADERS ---------- */
   section{padding-block:clamp(52px,7vw,96px);}
+  #about,#speaking,#kit{scroll-margin-top:72px;}
   .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(28px,4vw,44px);flex-wrap:wrap;}
   .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
   .section-head p{max-width:44ch;color:var(--ink-soft);margin:8px 0 0;font-size:0.98rem;}
@@ -144,6 +145,7 @@
   .about-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(28px,4vw,64px);align-items:start;}
     .about-grid p{font-size:0.92rem;font-weight:300;line-height:1.95;color:var(--ink);opacity:0.8;max-width:62ch;}
   .about-grid p + p{margin-top:16px;}
+  .about-grid p strong{font-weight:600;color:#f7f6dc;}
   .about-aside{position:sticky;top:90px;}
   .about-aside img{width:397px;height:485px;object-fit:cover;object-position:50% 25%;}
   .about-aside blockquote{
@@ -154,33 +156,25 @@
   .about-aside blockquote::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:3px;background:#9a4a0b;}
   .about-aside cite{display:block;margin-top:10px;font-style:normal;font-family:"Instrument Sans",sans-serif;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
 
-  /* ---------- STATS STRIP ---------- */
-  .stats-strip{background:#e8e8cc;border-block:1px solid rgba(5,45,63,0.22);}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:1000px;margin-inline:auto;}
-  .stat-tile{padding:22px 18px;border-right:1px solid rgba(5,45,63,0.22);text-align:center;}
-  .stats-grid .stat-tile:last-child{border-right:none;}
-  .stat-tile b{display:block;font-family:"Cormorant Garamond",serif;font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:700;font-variant-numeric:tabular-nums;color:#052d3f;}
-  .stat-tile span{font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:#052d3f;}
-  .stats-grid .stat-tile:last-child span{white-space:nowrap;}
-
   /* ---------- GALLERY ---------- */
   #room{background:#f7f6dc;color:#052d3f;}
-  #room .section-head{align-items:flex-start;flex-direction:column;gap:4px;margin-bottom:16px;}
-  #room .section-head p{margin:0;max-width:none;white-space:nowrap;}
-  #room .section-head p{color:#68757a;}
+  #room .section-head{align-items:flex-start;flex-direction:column;gap:8px;}
+  #room .section-head p{margin:0;max-width:76ch;color:#526166;}
+  #room .section-head .room-note{font-size:.8rem;color:#68757a;}
   #speaking .section-head{align-items:flex-start;flex-direction:column;gap:4px;}
   #speaking .section-head p{margin-top:0;max-width:78ch;}
-  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:10px;}
-    .g-item{position:relative;overflow:hidden;}
-  .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
-  .g-item:hover img{transform:scale(1.04);}
-  .g-item.wide{grid-column:span 2;}
-  .g-item.tall{grid-row:span 2;}
-  .g-cap{
-    position:absolute;left:0;right:0;bottom:0;padding:10px 12px;
-    background:linear-gradient(0deg, rgba(15,15,17,0.78), transparent);
-    color:#f7f6dc;font-size:0.72rem;letter-spacing:0.02em;line-height:1.3;
-  }
+  .gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+  .room-card{background:#e8e8cc;border:1px solid rgba(5,45,63,0.15);min-width:0;scroll-margin-top:72px;}
+  .room-card img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 25%;}
+  .room-card-copy{padding:22px;}
+  .room-card-title{font-size:1.5rem;line-height:1.2;margin-bottom:10px;}
+  .room-card-label{color:#9a4a0b;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
+  .room-card-event{font-family:"Cormorant Garamond",serif;font-size:1.25rem;font-weight:600;line-height:1.25;margin:0 0 8px;}
+  .room-card-body{color:#526166;font-size:.88rem;line-height:1.7;margin:0;}
+  .room-card-body + .room-card-body{margin-top:8px;}
+  .room-card-link{display:inline-block;margin-top:14px;color:#9a4a0b;font-size:.78rem;font-weight:600;text-decoration:none;}
+  .room-card-link:hover{text-decoration:underline;}
+  .room-card-link:focus-visible{outline:2px solid #9a4a0b;outline-offset:3px;}
 
   /* ---------- TALKS ---------- */
   .talks-list{display:flex;flex-direction:column;gap:12px;}
@@ -199,52 +193,41 @@
   .talk-desc{color:var(--ink-soft);font-size:.92rem;line-height:1.75;max-width:76ch;margin:0 0 12px;}
   .talk-takeaway{max-width:76ch;padding-top:12px;border-top:1px solid var(--line);font-size:.86rem;line-height:1.65;color:var(--ink);}
   .talk-takeaway strong{color:var(--gold);}
+  .talks-inquiry{display:inline-block;margin-top:24px;color:var(--gold);font-size:.86rem;font-weight:600;text-decoration:none;}
+  .talks-inquiry:hover{text-decoration:underline;}
+  .talks-inquiry:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  .specialized-talk{margin-top:32px;}
+  .specialized-talk > .eyebrow{margin-bottom:12px;}
+  .specialized-talk .talk-card summary{grid-template-columns:minmax(0,1fr) 24px;}
+  .specialized-talk .talk-details{padding-left:22px;}
   @media(max-width:600px){
     .talk-card summary{grid-template-columns:34px minmax(0,1fr) 20px;gap:10px;padding:16px 14px;}
     .talk-title{font-size:1.2rem;}
     .talk-subtitle{font-size:.8rem;}
     .talk-details{padding:0 16px 18px 58px;}
   }
-  .pill{border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:0.8rem;color:var(--ink-soft);}
-
-  /* ---------- STORY SECTION ---------- */
-  .story-section{background:#f7f6dc;color:#052d3f;padding-block:clamp(56px,8vw,104px);}
-  .story-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,72px);align-items:center;}
-  .story-section .eyebrow-light{margin-bottom:18px;color:#9a4a0b;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;}
-  .story-headline{font-size:clamp(1.4rem,3.2vw,3.35rem);font-weight:400;line-height:1.08;margin-bottom:22px;}
-  .story-headline em{color:#9a4a0b;font-weight:400;}
-  .story-body{max-width:68ch;color:#526166;font-size:.94rem;font-weight:400;line-height:1.8;margin:0 0 16px;}
-  .story-body em{font-style:italic;color:#9a4a0b;}
-  .story-stat{border-top:1px solid rgba(5,45,63,0.2);margin-top:28px;padding-top:22px;}
-  .story-stat-num{display:block;font-family:"Cormorant Garamond",serif;font-size:3.5rem;font-weight:600;line-height:1;color:#052d3f;}
-  .story-stat-desc{display:block;margin-top:8px;color:#526166;font-size:.8rem;line-height:1.65;}
-  .story-video-wrap{min-width:0;}
-  .story-video-box{width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;border:1px solid var(--line);}
-  .story-video-box iframe{display:block;width:100%;height:100%;border:0;}
-  .story-video-caption{margin-top:10px;color:#526166;font-size:.72rem;line-height:1.5;}
-
   /* ---------- PRESS ---------- */
-  #press{background:#E8E4DA;color:#9a4a0b;padding:8rem 2.5rem;border-top:4px solid #9a4a0b;}
-  #press .section-head{align-items:flex-start;flex-direction:column;gap:4px;}
-  #press .section-head p,
-  #press .press-item p,
-  #press .press-also p{color:#526166;opacity:0.8;}
-  #press .press-item p{color:#f7f6dc;opacity:0.8;}
-  #press .section-head p{margin-top:0;line-height:1.2;}
-  #press .press-item h3{color:#f7f6dc;}
-  #press .press-item .meta{color:#d28a4b;}
-  #press .press-also{border-top-color:rgba(247,246,220,0.3);}
-  #press .logo-row{color:#052d3f;font-size:1.1rem;font-weight:700;}
-  .press-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px 20px;}
-  .press-item{display:block;color:inherit;text-decoration:none;position:relative;padding:20px 18px;border:1px solid rgba(5,45,63,0.18);border-top:3px solid #9a4a0b;background:#052d3f;transition:background 0.2s ease,transform 0.2s ease;}
-  .press-item:nth-child(even){background:#052d3f;}
-  .press-item:hover{background:#0b3d51;transform:translateY(-2px);}
-  .press-item h3{font-size:1.05rem;margin-bottom:6px;}
-  .press-item p{margin:0;color:var(--ink-soft);font-size:0.92rem;}
-  .press-item .meta{margin-top:8px;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  .press-also{margin-top:36px;padding-top:26px;border-top:1px solid var(--line);}
-  .press-also p{color:var(--ink-soft);font-size:0.86rem;margin:0 0 10px;}
-  .logo-row{display:flex;flex-wrap:wrap;gap:10px 18px;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:0.98rem;color:var(--ink-soft);}
+  #press{background:#f7f6dc;color:#052d3f;padding:clamp(56px,7vw,96px) 2.5rem;border-top:4px solid #9a4a0b;scroll-margin-top:72px;}
+  #press .section-head{align-items:flex-start;flex-direction:column;gap:8px;}
+  #press .section-head p{color:#526166;max-width:78ch;margin:0;line-height:1.7;}
+  .press-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .press-item{min-width:0;padding:20px 18px;border:1px solid rgba(5,45,63,0.18);border-top:3px solid #9a4a0b;background:#052d3f;color:#f7f6dc;}
+  .press-item h3{font-size:1.2rem;line-height:1.2;margin-bottom:8px;}
+  .press-item p{margin:0;color:rgba(247,246,220,0.8);font-size:.88rem;line-height:1.6;}
+  .press-item .meta{margin-bottom:10px;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#e3b18c;font-weight:600;}
+  .press-item img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 25%;margin-bottom:16px;}
+  .press-links{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px;}
+  .press-links a{color:#f7f6dc;font-size:.78rem;font-weight:600;text-underline-offset:3px;}
+  .press-links a:hover{color:#e3b18c;}
+  .press-interview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,48px);align-items:center;margin-top:48px;padding-top:40px;border-top:1px solid rgba(5,45,63,.2);}
+  .press-video{width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;}
+  .press-video iframe{display:block;width:100%;height:100%;border:0;}
+  .press-interview .eyebrow{color:#9a4a0b;}
+  .press-interview h3{font-size:clamp(1.7rem,2.7vw,2.3rem);line-height:1.15;margin:10px 0 16px;}
+  .press-interview p{color:#526166;font-size:.94rem;line-height:1.75;margin:0 0 14px;}
+  .press-interview .interview-link{display:inline-block;margin-top:4px;color:#9a4a0b;font-size:.8rem;font-weight:700;text-transform:uppercase;text-underline-offset:3px;}
+  .press-contact{margin-top:36px;padding-top:24px;border-top:1px solid rgba(5,45,63,.2);color:#526166;font-size:.9rem;}
+  .press-contact a{color:#9a4a0b;text-underline-offset:3px;}
 
   /* ---------- TESTIMONIALS ---------- */
   .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
@@ -264,7 +247,7 @@
   .kit{background:#f7f6dc;color:#052d3f;border-top:4px solid #9a4a0b;}
   .kit .section-head{align-items:flex-start;flex-direction:column;gap:4px;}
   .kit .section-head p{color:#68757a;}
-  .kit .section-head p{margin-top:0;line-height:1.4;max-width:52ch;letter-spacing:0.02em;}
+  .kit .section-head p{margin-top:0;line-height:1.6;max-width:76ch;letter-spacing:0.02em;}
   .kit .eyebrow{color:#9a4a0b;}
   .kit h2{color:#052d3f;}
   .kit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
@@ -280,54 +263,63 @@
   .kit-title{font-family:"Cormorant Garamond",serif;font-size:1.28rem;font-weight:600;color:#052d3f;}
   .kit-desc{font-size:0.88rem;color:#68757a;flex:1;}
   .kit-link{font-size:0.78rem;font-weight:700;letter-spacing:0.03em;color:#9a4a0b;display:inline-flex;align-items:center;gap:6px;}
-  .kit-card:hover .kit-link{color:var(--clay);}
+  .kit-actions{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:auto;}
+  .kit-actions a{text-decoration:none;}
+  .kit-actions a:hover{text-decoration:underline;color:var(--clay);}
+  .kit-actions a:focus-visible{outline:2px solid #9a4a0b;outline-offset:3px;}
 
   /* ---------- WAYS TO WORK TOGETHER ---------- */
   .ways-section{background:#e8e8cc;color:#052d3f;border-top:1px solid rgba(5,45,63,.18);}
-  .ways-section .section-head{display:block;max-width:820px;}
-  .ways-section .section-head h2{color:#052d3f;margin-bottom:12px;}
+  .ways-section .section-head{display:block;}
+  .ways-section .section-head h2{color:#052d3f;margin-bottom:12px;font-size:clamp(1.7rem,3.2vw,2.5rem);white-space:nowrap;}
   .ways-section .section-head p{max-width:76ch;color:#526166;line-height:1.75;}
   .ways-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
   .ways-card{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0;padding:26px 22px;background:#f7f6dc;border:1px solid rgba(5,45,63,.18);border-top:3px solid #9a4a0b;}
   .ways-card h3{font-size:1.38rem;line-height:1.15;color:#052d3f;}
-  .ways-card p{flex:1;color:#526166;font-size:.9rem;line-height:1.7;}
-  .ways-card .btn{margin-top:4px;}
-  @media(max-width:900px){.ways-grid{grid-template-columns:1fr;}}
+  .ways-number{color:#9a4a0b;font-family:"Instrument Sans",sans-serif;font-size:.72rem;letter-spacing:.08em;margin-right:6px;white-space:nowrap;}
+  .ways-card p{margin:0;color:#526166;font-size:.9rem;line-height:1.7;}
+  .ways-card .ways-lead{color:#052d3f;font-weight:600;}
+  .ways-cta{display:inline-block;margin-top:auto;padding-top:10px;color:#052d3f;font-size:.82rem;font-weight:600;text-decoration:none;}
+  .ways-cta:hover{text-decoration:underline;}
+  .ways-cta:focus-visible{outline:2px solid #9a4a0b;outline-offset:3px;}
+  .ways-cta-primary{color:#9a4a0b;font-weight:700;}
+  @media(max-width:900px){.ways-grid{grid-template-columns:1fr;}.ways-section .section-head h2{white-space:normal;}}
 
   /* ---------- BOOK / FOOTER ---------- */
-  .book{text-align:left;}
-  .book-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start;}
-  .book-grid .btn{white-space:nowrap;}
-  .book-actions{display:flex;flex-wrap:nowrap;gap:14px;align-items:center;margin-top:22px;}
-    .fmt-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;}
+  .book{text-align:center;scroll-margin-top:72px;}
+  .book-inner{max-width:760px;margin:0 auto;}
+  .book h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;}
+  .book-subtitle{font-family:"Cormorant Garamond",serif;font-size:1.4rem;color:var(--gold);margin:0 0 18px;}
+  .book-copy{color:var(--ink-soft);line-height:1.8;margin:0 auto 14px;}
+  .book-actions{display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:28px;}
+  .book-media{font-size:.84rem;color:var(--ink-soft);text-underline-offset:3px;}
   footer{border-top:1px solid var(--line);padding-block:26px;}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.76rem;color:var(--ink-soft);}
+  .site-footer .wrap{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;font-size:.8rem;color:var(--ink-soft);}
+  .footer-brand{font-family:"Cormorant Garamond",serif;font-size:1.4rem;font-weight:600;color:var(--ink);}
+  .footer-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 18px;}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--gold);}
+  .social-link{display:inline-flex;align-items:center;justify-content:center;}
+  .social-link svg{width:18px;height:18px;fill:currentColor;}
   @media(max-width:1100px){
     nav .wrap{flex-wrap:nowrap;padding-block:12px;gap:clamp(8px,2vw,16px);}
     .wordmark{margin-left:0;font-size:clamp(.68rem,2.6vw,1.05rem);flex-shrink:0;}
     .navlinks{width:auto;flex-wrap:nowrap;justify-content:flex-end;margin:0 0 0 auto;padding:0;gap:clamp(6px,2.4vw,18px);font-size:clamp(.6rem,2.2vw,.82rem);}
     .navlinks a{white-space:nowrap;}
     .hero-copy{width:70%;}
-    .hero-copy .eyebrow,.hero-role{white-space:normal;}
+    .hero-role{white-space:normal;}
     .about-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px;}
     .about-aside img{width:100%;height:auto;aspect-ratio:397/485;}
-    .stats-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
-    .stats-grid .stat-tile:last-child{grid-column:auto;}
-    .stats-grid .stat-tile:last-child span{white-space:normal;}
     .kit-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
     .press-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   }
   @media(max-width:900px){
     .hero-copy{width:76%;}
-    .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-    .g-item.tall{grid-row:auto;}
-    #room .section-head p{max-width:100%;white-space:normal;}
-    .book-grid{grid-template-columns:1fr;gap:24px;}
   }
   @media(max-width:760px){
     .hero-grid{min-height:560px;}
     .hero-copy{width:100%;max-width:100%;min-width:0;min-height:0;padding:64px 24px 72px;gap:16px;}
-    .hero-copy .eyebrow{font-size:.62rem;}
+    .hero-copy .eyebrow{font-size:.62rem;white-space:normal;}
     .hero-role{font-size:.72rem;}
     .about-grid{grid-template-columns:1fr;gap:24px;}
     .about-grid > div,.about-aside{min-width:0;}
@@ -336,42 +328,30 @@
     .about-aside{position:static;}
     .about-aside img{width:100%;max-width:397px;height:auto;aspect-ratio:397/485;}
     .about-aside blockquote{width:auto;}
-    .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:16px;}
-    .stats-grid .stat-tile:last-child{grid-column:auto;}
-    .stats-grid .stat-tile:last-child span{white-space:normal;}
-    #room .section-head p{max-width:100%;white-space:normal;}
-    .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(130px,36vw,160px);}
-    .story-grid{grid-template-columns:1fr;gap:32px;}
-    .kit-grid,.book-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .press-interview{grid-template-columns:1fr;gap:24px;}
+    .kit-grid{grid-template-columns:1fr;}
     #press{padding-inline:0;}
     .press-grid{grid-template-columns:1fr;}
-    .book-grid{gap:24px;}
     .testimonial-footer{flex-wrap:wrap;align-items:flex-start;gap:12px;}
-    .book-grid h2{white-space:normal !important;}
-    .book-grid .btn{white-space:normal;}
-    .book-actions .btn-solid{white-space:nowrap;max-width:100%;font-size:clamp(.5rem,2.9vw,.8rem);padding:11px clamp(8px,2.6vw,18px);letter-spacing:0;}
-    #press .logo-row{flex-wrap:nowrap;justify-content:space-between;gap:clamp(6px,2.4vw,18px);font-size:clamp(.66rem,3.3vw,1.1rem);}
-    #press .logo-row span{white-space:nowrap;}
-    .book-actions{flex-wrap:wrap;}
+  }
+  @media(max-width:600px){
+    nav .wrap{flex-wrap:wrap;gap:8px;}
+    .wordmark{flex-basis:100%;}
+    .navlinks{width:100%;justify-content:space-between;gap:6px;margin:0;}
   }
   @media(max-width:480px){
     section{padding-block:40px;}
     .wrap{padding-inline:20px;}
     .hero-copy{padding:56px 20px 64px;}
     .hero-stats{gap:clamp(8px,3vw,18px);}
-    .stats-grid{gap:0;padding:12px 16px;}
-    .stat-tile{padding:16px 10px;border-right:0;border-bottom:1px solid rgba(5,45,63,0.22);}
-    .stat-tile:nth-child(odd){border-right:1px solid rgba(5,45,63,0.22);}
-    .stats-grid .stat-tile:last-child{border-bottom:0;}
-    .gallery-grid{grid-auto-rows:clamp(130px,36vw,150px);}
     #press{padding-block:56px;}
     #press .wrap{padding-inline:20px;}
-    .book-actions{align-items:flex-start;}
   }
-  /* Phone portrait: hero fills exactly the visible screen below the nav */
+  /* Phone portrait: hero fills at least the visible screen below the nav */
   @media(max-width:760px) and (orientation:portrait){
-    .hero-grid{min-height:calc(100vh - 42px);height:calc(100vh - 42px);min-height:calc(100svh - 42px);height:calc(100svh - 42px);}
-    .hero-copy{height:100%;justify-content:center;gap:clamp(8px,2svh,18px);padding:clamp(16px,4svh,48px) clamp(16px,5vw,28px) clamp(40px,8svh,64px);}
+    .hero-grid{min-height:calc(100vh - 42px);min-height:calc(100svh - 42px);}
+    .hero-copy{min-height:calc(100vh - 42px);min-height:calc(100svh - 42px);justify-content:center;gap:clamp(8px,2svh,18px);padding:clamp(16px,4svh,48px) clamp(16px,5vw,28px) clamp(40px,8svh,64px);}
     .hero-copy .eyebrow{font-size:clamp(.54rem,2.3vw,.66rem);letter-spacing:.06em;}
     .hero h1{font-size:clamp(1.9rem,10.5vw,2.8rem);}
     .hero-role{font-size:clamp(.58rem,2.6vw,.72rem);}
@@ -392,39 +372,38 @@
       <li><a href="#about">About</a></li>
       <li><a href="#speaking">Speaking</a></li>
       <li><a href="#press">Press</a></li>
-      <li><a href="#kit">One-Pagers</a></li>
+      <li><a href="#kit">Speaker Kit</a></li>
+      <li><a href="#book">Book Lauren</a></li>
     </ul>
-    <a class="btn btn-solid nav-cta" href="https://form.typeform.com/to/EXQznDku">Book Lauren</a>
   </div>
 </nav>
 
 <div id="top" class="hero">
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">Founder, In The Room With Legacy™ · Chief Growth Officer, Miller³ Consulting</div>
+      <div class="eyebrow">Founder, In the Room With Legacy™ · Principal &amp; Chief Growth Officer, Miller³ Consulting</div>
       <h1>Lauren Rosa&nbsp;Miller</h1>
-      <div class="hero-role">Legacy Architect &nbsp;·&nbsp; Keynote Speaker &nbsp;·&nbsp; Entrepreneur &nbsp;·&nbsp; Cultural Thought Leader</div>
+      <div class="hero-role">Entrepreneur · Strategist · Speaker · Legacy Architect</div>
       <blockquote class="hero-quote">&ldquo;You are building something whether you know it or not. The question is whether it&rsquo;s intentional.&rdquo;</blockquote>
       <div class="hero-stats">
-        <div><b>3M+</b><span>Viral reach</span></div>
-        <div><b>5th</b><span>Gen. entrepreneur</span></div>
-        <div><b>150+</b><span>Years family legacy</span></div>
+        <div><b>4th Gen</b><span>Entrepreneur</span></div>
+        <div><b>150+</b><span>Years of Family Legacy</span></div>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="https://form.typeform.com/to/EXQznDku">Book Lauren</a>
+        <a class="btn btn-solid" href="#book">Book Lauren</a>
       </div>
     </div>
     <div class="hero-photo">
       <img src="photos/hero.jpg" alt="Lauren Rosa Miller speaking on stage during a keynote fireside session" />
-      <div class="hero-photo-cap">Women in Leadership — Series Finale keynote</div>
+      <div class="hero-photo-cap">Women in Leadership | Series Finale Keynote</div>
     </div>
   </div>
 </div>
 
 <div class="marquee-band">
   <div class="marquee-track">
-    <span class="outlet-logo gma" aria-label="Good Morning America">GMA</span><span class="outlet-logo abc" aria-label="ABC News">abc</span><span class="outlet-logo" aria-label="NewsNation">NewsNation</span><span class="outlet-logo" aria-label="Harvard Business School">HBS</span><span class="outlet-logo black-enterprise" aria-label="Black Enterprise">Black Enterprise</span><span class="outlet-logo business-insider" aria-label="Business Insider">Business Insider</span><span class="outlet-logo t-mobile" aria-label="T-Mobile for Business">T-Mobile</span><span class="outlet-logo" aria-label="USPS News">USPS</span><span class="outlet-logo essence" aria-label="Essence">Essence</span><span class="outlet-logo" aria-label="HuffPost">HuffPost</span><span class="outlet-logo" aria-label="Travel Noire">Travel Noire</span><span class="outlet-logo" aria-label="XoNecole">XoNecole</span><span class="outlet-logo blavity" aria-label="Blavity">Blavity</span>
-    <span class="outlet-logo gma" aria-label="Good Morning America">GMA</span><span class="outlet-logo abc" aria-label="ABC News">abc</span><span class="outlet-logo" aria-label="NewsNation">NewsNation</span><span class="outlet-logo" aria-label="Harvard Business School">HBS</span><span class="outlet-logo black-enterprise" aria-label="Black Enterprise">Black Enterprise</span><span class="outlet-logo business-insider" aria-label="Business Insider">Business Insider</span><span class="outlet-logo t-mobile" aria-label="T-Mobile for Business">T-Mobile</span><span class="outlet-logo" aria-label="USPS News">USPS</span><span class="outlet-logo essence" aria-label="Essence">Essence</span><span class="outlet-logo" aria-label="HuffPost">HuffPost</span><span class="outlet-logo" aria-label="Travel Noire">Travel Noire</span><span class="outlet-logo" aria-label="XoNecole">XoNecole</span><span class="outlet-logo blavity" aria-label="Blavity">Blavity</span>
+    <span class="marquee-label">Media Features</span><span class="outlet-logo gma" aria-label="Good Morning America">GMA</span><span class="outlet-logo abc" aria-label="ABC News">abc</span><span class="outlet-logo" aria-label="NewsNation">NewsNation</span><span class="outlet-logo business-insider" aria-label="Business Insider">Business Insider</span><span class="outlet-logo" aria-label="USPS News">USPS</span><span class="outlet-logo essence" aria-label="Essence">Essence</span><span class="outlet-logo" aria-label="HuffPost">HuffPost</span><span class="outlet-logo" aria-label="Travel Noire">Travel Noire</span><span class="outlet-logo" aria-label="XoNecole">XoNecole</span><span class="outlet-logo blavity" aria-label="Blavity">Blavity</span><span class="marquee-label">Speaking Engagements</span><span class="outlet-logo" aria-label="Harvard Business School">HBS</span><span class="outlet-logo t-mobile" aria-label="T-Mobile for Business">T-Mobile</span><span class="marquee-label">Media &amp; Speaking</span><span class="outlet-logo black-enterprise" aria-label="Black Enterprise">Black Enterprise</span>
+    <span class="marquee-label">Media Features</span><span class="outlet-logo gma" aria-label="Good Morning America">GMA</span><span class="outlet-logo abc" aria-label="ABC News">abc</span><span class="outlet-logo" aria-label="NewsNation">NewsNation</span><span class="outlet-logo business-insider" aria-label="Business Insider">Business Insider</span><span class="outlet-logo" aria-label="USPS News">USPS</span><span class="outlet-logo essence" aria-label="Essence">Essence</span><span class="outlet-logo" aria-label="HuffPost">HuffPost</span><span class="outlet-logo" aria-label="Travel Noire">Travel Noire</span><span class="outlet-logo" aria-label="XoNecole">XoNecole</span><span class="outlet-logo blavity" aria-label="Blavity">Blavity</span><span class="marquee-label">Speaking Engagements</span><span class="outlet-logo" aria-label="Harvard Business School">HBS</span><span class="outlet-logo t-mobile" aria-label="T-Mobile for Business">T-Mobile</span><span class="marquee-label">Media &amp; Speaking</span><span class="outlet-logo black-enterprise" aria-label="Black Enterprise">Black Enterprise</span>
   </div>
 </div>
 
@@ -433,11 +412,13 @@
     <div>
       <div class="eyebrow" style="margin-bottom:10px;">About</div>
       <h2 style="font-size:clamp(2.4rem,4vw,3rem);line-height:0.95;margin-bottom:20px;">The practitioner&rsquo;s case for building on purpose.</h2>
-      <p>Lauren Rosa Miller is a legacy architect, entrepreneur, and cultural thought leader who helps individuals, families, and organizations move from living by default to building with intention.</p>
-      <p>A Howard University graduate and 5th generation entrepreneur, Lauren comes from a lineage of landowners and farmers spanning nearly 150 years &mdash; including Miller Farms, one of the largest Black-owned farms in the Southeast. She built her first platform, Can&rsquo;t Stay Put, into a community of 25,000+ and became recognized as a pioneer of the Black millennial movement, earning coverage across Essence, HuffPost, Travel Noire, XoNecole, and Blavity.</p>
-      <p>When her father became ill, Lauren stepped into the active work of legacy &mdash; documenting decades of undocumented institutional knowledge and leading the second-generation transition of Miller&sup3; Consulting, the 35-year procurement and data analytics firm he built. That experience, learned in real time and not in a classroom, became the foundation of In The Room With Legacy, the platform she founded to help individuals and families build legacy with intention before crisis forces them to.</p>
-      <p>A viral tribute to her late father &mdash; viewed 3M+ times &mdash; brought national attention to the importance of legacy conversations, earning features on Good Morning America, ABC News, NewsNation, and USPS News. She has delivered a TED-style talk at Harvard Business School alongside her mother to a standing ovation, been featured in Harvard Business Magazine, and shared the stage with leaders like T-Mobile EVP Mike Katz on succession and generational longevity.</p>
-      <p>Today, as Chief Growth Officer and Co-Owner of Miller&sup3; Consulting &mdash; a firm with $20B+ in procurement spend analyzed across 30+ states and 250+ client engagements &mdash; and Founder of In The Room With Legacy, Lauren brings a practitioner&rsquo;s command of what it actually takes to build, run, and transfer something that lasts.</p>
+      <p>Lauren Rosa Miller is an entrepreneur, strategist, speaker, and legacy architect whose work spans entrepreneurship, public-sector strategy, economic development, culture, and generational stewardship.</p>
+      <p>A Howard University graduate and fourth-generation entrepreneur, Lauren is a fifth-generation descendant of a family whose history of landownership and agriculture in Southwest Georgia spans nearly 150 years. Her understanding of ownership, opportunity, and responsibility was shaped long before she began building platforms around those ideas.</p>
+      <p>In 2013, Lauren founded <strong>Can&rsquo;t Stay Put</strong>, a travel and lifestyle platform that encouraged a generation to explore the world, embrace possibility, and create lives rooted in purpose. What began as a personal vision grew into a community of more than 25,000 people, earning national media attention and establishing her as an early voice in the emerging Black millennial travel movement.</p>
+      <p>Her professional journey also includes helping lead the next chapter of <strong>Miller&sup3; Consulting</strong>, the public-sector procurement and data analytics firm founded by her father in 1986. Today, as Principal and Chief Growth Officer, Lauren works at the intersection of institutional strategy, economic opportunity, and business growth.</p>
+      <p>But some of her most consequential lessons came through navigating her father&rsquo;s illness, caregiving, and the complexities of family business succession. Those experiences deepened her understanding of what it takes to preserve what previous generations have built while preparing the next generation to carry it forward.</p>
+      <p>They also inspired her to establish <strong>In the Room With Legacy</strong>, a platform dedicated to changing how we think about family and legacy and how we organize ourselves around what we&rsquo;ve been called to build, steward, and grow across generations.</p>
+      <p>Across her work, Lauren brings a perspective shaped by entrepreneurship, institutional leadership, family history, and lived experience. Her message is consistent: what we build matters, but so does how we prepare it to last.</p>
     </div>
     <div class="about-aside">
       <img src="photos/profile.jpg" alt="Lauren Rosa Miller speaking during a keynote session, side profile" />
@@ -447,28 +428,59 @@
   </div>
 </section>
 
-<div class="stats-strip">
-  <div class="wrap" style="padding-inline:0;">
-    <div class="stats-grid">
-      <div class="stat-tile"><b>3M+</b><span>Viral reach</span></div>
-      <div class="stat-tile"><b>5th Gen</b><span>Entrepreneur</span></div>
-      <div class="stat-tile"><b>150+ yrs</b><span>Family legacy &amp; land</span></div>
-      <div class="stat-tile"><b>9 years</b><span>Second-generation leadership</span></div>
-    </div>
-  </div>
-</div>
-
 <section id="room">
   <div class="wrap">
     <div class="section-head">
-      <h2>In the room</h2>
-      <p>Selects from the Women in Leadership keynote series &mdash; a fireside-style session Lauren led on identity, wealth, and legacy.</p>
+      <div class="eyebrow">In the Room</div>
+      <h2>Conversations that move people and institutions forward.</h2>
+      <p>From corporate boardrooms and academic institutions to entrepreneurial communities and family gatherings, Lauren brings perspectives shaped by lived experience, institutional strategy, and the responsibility of building across generations.</p>
+      <p class="room-note">Confirmed event details are shown where available; broad themes are shown for context.</p>
     </div>
     <div class="gallery-grid">
-      <div class="g-item wide tall"><img src="photos/venue.jpg" alt="Wide shot of the Women in Leadership Series Finale venue and audience"/><div class="g-cap">Women in Leadership &mdash; Series Finale</div></div>
-      <div class="g-item"><img src="photos/framework.jpg" alt="Lauren presenting the Types of Legacy and Wealth framework"/><div class="g-cap">Presenting the &ldquo;Types of Legacy &amp; Wealth&rdquo; framework</div></div>
-      <div class="g-item"><img src="photos/intro.jpg" alt="Lauren being introduced with her speaker bio on screen"/><div class="g-cap">As introduced: &ldquo;a legacy strategist&rdquo;</div></div>
-      <div class="g-item wide"><img src="photos/qanda.jpg" alt="Audience member asking a question during the Q&A portion"/><div class="g-cap">Q&amp;A &mdash; every talk ends in dialogue, not just applause</div></div>
+      <article id="harvard-engagement" class="room-card">
+        <img src="photos/Harvard.jpeg" alt="Lauren and her mother at Harvard Business School" loading="lazy">
+        <div class="room-card-copy">
+          <h3 class="room-card-title">Harvard Business School</h3>
+          <div class="room-card-label">TED-style Talks | Intergenerational Conversation</div>
+          <h4 class="room-card-event">Wealth Through a Different Lens</h4>
+          <p class="room-card-body">Lauren joined her mother for a series of TED-style talks exploring wealth through an intergenerational lens. Her mother opened the conversation, followed by Lauren, offering perspectives from two generations on how we understand, experience, and define wealth beyond financial assets.</p>
+        </div>
+      </article>
+      <article class="room-card">
+        <img src="photos/T Mobile.jpeg" alt="Lauren featured in T-Mobile for Business Magenta Edge" loading="lazy">
+        <div class="room-card-copy">
+          <h3 class="room-card-title">T-Mobile for Business</h3>
+          <div class="room-card-label">Featured Expert | April 2023</div>
+          <h4 class="room-card-event">Building Businesses That Last for Generations</h4>
+          <p class="room-card-body">Lauren shared practical strategies for business succession planning and generational longevity, exploring the importance of long-term planning, business documentation, ongoing assessments, and community reinvestment in building sustainable enterprises.</p>
+          <a class="room-card-link" href="https://www.youtube.com/watch?v=RAg9yufn2xE" target="_blank" rel="noopener noreferrer">Watch the session <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article id="black-enterprise-engagement" class="room-card">
+        <img src="photos/Black Enterprise.jpeg" alt="Lauren speaking at the Black Enterprise Disruptor Summit" loading="lazy">
+        <div class="room-card-copy">
+          <h3 class="room-card-title">Black Enterprise Disruptor Summit</h3>
+          <div class="room-card-label">Broad theme</div>
+          <p class="room-card-body">Entrepreneurship, economic empowerment, and legacy</p>
+        </div>
+      </article>
+      <article class="room-card">
+        <img src="photos/Procurement &amp; Economic Devt.jpeg" alt="Lauren speaking at the Economy League of Greater Philadelphia PAGE Summit" loading="lazy">
+        <div class="room-card-copy">
+          <h3 class="room-card-title">The Economy League of Greater Philadelphia | PAGE Summit</h3>
+          <div class="room-card-label">Panelist | February 20, 2025</div>
+          <h4 class="room-card-event">The Business Case for Opportunity: Why Supplier Engagement Is Economic Strategy</h4>
+          <p class="room-card-body">Exploring how procurement, supplier engagement, and institutional spending can expand economic opportunity, strengthen local businesses, and drive inclusive economic growth.</p>
+        </div>
+      </article>
+      <article class="room-card">
+        <img src="photos/venue.jpg" alt="Women in Leadership Series Finale venue and audience" loading="lazy">
+        <div class="room-card-copy">
+          <h3 class="room-card-title">Women in Leadership | Series Finale</h3>
+          <div class="room-card-label">Keynote</div>
+          <p class="room-card-body">A fireside-style session Lauren led on identity, wealth, and legacy.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -476,8 +488,9 @@
 <section id="speaking">
   <div class="wrap">
     <div class="section-head">
-      <h2>Signature talks</h2>
-      <p>Keynotes for family offices, business organizations, universities, leadership conferences, cultural institutions, and professional audiences. Each talk can be adapted to the room.</p>
+      <h2>Signature Talks</h2>
+      <p>Conversations that challenge how we think about identity, opportunity, leadership, wealth, and what we leave behind.</p>
+      <p>Drawing from entrepreneurship, institutional strategy, family history, and lived experience, Lauren delivers keynotes and conversations that connect big ideas to the choices we make in our lives, organizations, and communities.</p>
     </div>
     <div class="talks-list">
       <details class="talk-card talk-card-featured">
@@ -505,17 +518,6 @@
       <details class="talk-card">
         <summary>
           <span class="talk-num">03</span>
-          <span class="talk-summary-copy"><span class="talk-title">Know Where You Come From</span><span class="talk-subtitle">The power of family history, identity, and intergenerational storytelling.</span></span>
-        </summary>
-        <div class="talk-details">
-          <p class="talk-desc">Knowing where we come from can fundamentally change how we understand who we are and what we&rsquo;re capable of becoming.</p>
-          <p class="talk-desc">Drawing from her family&rsquo;s nearly 150-year history of land stewardship in southwest Georgia, Lauren explores the role of family history in shaping identity, confidence, belonging, and generational possibility. This talk challenges audiences to see family stories not simply as memories of the past, but as resources that can inform decisions, strengthen relationships, and shape the future.</p>
-          <p class="talk-takeaway"><strong>Audience takeaway:</strong> A renewed appreciation for family history as a source of identity, connection, and intergenerational wisdom.</p>
-        </div>
-      </details>
-      <details class="talk-card">
-        <summary>
-          <span class="talk-num">04</span>
           <span class="talk-summary-copy"><span class="talk-title">Succession Is Not an Event</span><span class="talk-subtitle">Preparing the next generation to inherit responsibility, not just assets.</span></span>
         </summary>
         <div class="talk-details">
@@ -526,7 +528,42 @@
       </details>
       <details class="talk-card">
         <summary>
+          <span class="talk-num">04</span>
+          <span class="talk-summary-copy"><span class="talk-title">Build a Life You Don&rsquo;t Have to Escape From</span><span class="talk-subtitle">What entrepreneurship, exploration, and intentional living can teach us about designing a life of possibility.</span></span>
+        </summary>
+        <div class="talk-details">
+          <p class="talk-desc">Long before entrepreneurship and content creation became mainstream career paths, Lauren founded Can&rsquo;t Stay Put, a travel and lifestyle platform built around a simple idea: we have more agency over the lives we create than we often realize.</p>
+          <p class="talk-desc">Drawing from her experience building a platform, exploring the world, and navigating the evolution of her own identity and ambitions, Lauren challenges audiences to examine the expectations they&rsquo;ve inherited, the possibilities they&rsquo;ve overlooked, and the courage required to build a life that reflects who they are becoming.</p>
+          <p class="talk-takeaway"><strong>Audience takeaway:</strong> A renewed sense of agency and practical inspiration to make more intentional choices about how they live, lead, and pursue opportunity.</p>
+        </div>
+      </details>
+      <details class="talk-card">
+        <summary>
           <span class="talk-num">05</span>
+          <span class="talk-summary-copy"><span class="talk-title">Know Where You Come From</span><span class="talk-subtitle">How identity, heritage, and storytelling shape belonging, leadership, and the futures we imagine.</span></span>
+        </summary>
+        <div class="talk-details">
+          <p class="talk-desc">Knowing where we come from can fundamentally change how we understand who we are and what we&rsquo;re capable of becoming.</p>
+          <p class="talk-desc">Drawing from her family&rsquo;s nearly 150-year history of land stewardship in southwest Georgia, Lauren explores the role of family history in shaping identity, confidence, belonging, and generational possibility. This talk challenges audiences to see family stories not simply as memories of the past, but as resources that can inform decisions, strengthen relationships, and shape the future.</p>
+          <p class="talk-takeaway"><strong>Audience takeaway:</strong> A renewed appreciation for family history as a source of identity, connection, and intergenerational wisdom.</p>
+        </div>
+      </details>
+      <details class="talk-card">
+        <summary>
+          <span class="talk-num">06</span>
+          <span class="talk-summary-copy"><span class="talk-title">From Opportunity to Ownership</span><span class="talk-subtitle">Building businesses and economic ecosystems positioned for sustainable growth.</span></span>
+        </summary>
+        <div class="talk-details">
+          <p class="talk-desc">Creating more businesses is not the same as creating more economic opportunity. Too often, entrepreneurship is encouraged without sufficient attention to market demand, institutional spending, business readiness, and the pathways that allow enterprises to grow and endure.</p>
+          <p class="talk-desc">Drawing from her experience in public-sector procurement, economic development, and multigenerational business leadership, Lauren challenges audiences to think beyond business creation toward building and acquiring enterprises positioned to compete, scale, create jobs, and generate lasting economic value.</p>
+          <p class="talk-takeaway"><strong>Audience takeaway:</strong> A more strategic understanding of how entrepreneurship, institutional opportunity, and business ownership can work together to create sustainable economic growth.</p>
+        </div>
+      </details>
+    </div>
+    <div class="specialized-talk">
+      <div class="eyebrow">Specialized Speaking Offering</div>
+      <details class="talk-card">
+        <summary>
           <span class="talk-summary-copy"><span class="talk-title">Don&rsquo;t Wait Until Someone Gets Sick</span><span class="talk-subtitle">The conversations families need to have before a crisis.</span></span>
         </summary>
         <div class="talk-details">
@@ -536,53 +573,38 @@
         </div>
       </details>
     </div>
-  </div>
-</section>
-
-<section class="story-section">
-  <div class="wrap story-grid">
-    <div>
-      <div class="eyebrow-light">The Story That Proved the Thesis</div>
-      <h2 class="story-headline">Three million people watched<br>a family story no one had<br><em>planned to share.</em></h2>
-      <p class="story-body">In 2023, Lauren Rosa Miller posted a tribute to her late father. It was a daughter honoring a man whose story deserved to be told.</p>
-      <p class="story-body">The story reached three million people and was covered by NewsNation&rsquo;s <em>Morning in America</em>, Good Morning America, and ABC News. It showed how a family story can speak to people far beyond the room where it began, and how much people want to hear stories about family, memory, and legacy.</p>
-      <p class="story-body">That&rsquo;s what In the Room With Legacy&trade; is built to make space for.</p>
-      <div class="story-stat">
-        <span class="story-stat-num">3M+</span>
-        <span class="story-stat-desc">Views of a family tribute.<br>The audience for family legacy storytelling is real and waiting.</span>
-      </div>
-    </div>
-    <div class="story-video-wrap">
-      <div class="story-video-box">
-        <iframe src="https://www.youtube.com/embed/wC-Vax3ed-Y?si=SRbMg1DUeufqJmVs" title="Lauren Rosa Miller&rsquo;s family tribute, covered by NewsNation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <p class="story-video-caption">Lauren Rosa Miller &middot; NewsNation Morning in America &middot; Featured on Good Morning America and ABC News</p>
-    </div>
+    <a class="talks-inquiry" href="#book">Inquire About Speaking &rarr;</a>
   </div>
 </section>
 
 <section id="ways-to-work" class="ways-section">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Ways to work with Lauren</div>
-      <h2>Bring Lauren Into the Conversation</h2>
-      <p>Whether onstage, around a boardroom table, or in conversation with families navigating important transitions, Lauren brings a perspective grounded in lived experience, institutional leadership, and a commitment to building what lasts.</p>
+      <div class="eyebrow">Ways to Work With Lauren</div>
+      <h2>Meaningful conversations. Strategic collaboration. Lasting impact.</h2>
+      <p>Lauren partners with organizations, institutions, and communities to explore the ideas, opportunities, and decisions shaping our lives and the generations that follow.</p>
     </div>
     <div class="ways-grid">
       <article class="ways-card">
-        <h3>Speaking &amp; Experiences</h3>
-        <p>Keynotes, fireside conversations, moderated discussions, executive retreats, and interactive workshops.</p>
-        <a class="btn btn-solid" href="https://form.typeform.com/to/EXQznDku">Inquire About Speaking</a>
+        <h3><span class="ways-number">01 |</span> Speaking &amp; Experiences</h3>
+        <p class="ways-lead">Conversations that challenge perspectives and inspire intentional action.</p>
+        <p>From keynote addresses and fireside conversations to facilitated experiences and workshops, Lauren brings a distinctive perspective shaped by entrepreneurship, institutional leadership, culture, and lived experience.</p>
+        <p>Engagements are tailored to audiences across business, education, wealth, leadership, and community.</p>
+        <a class="ways-cta ways-cta-primary" href="#book">Inquire About Speaking &rarr;</a>
       </article>
       <article class="ways-card">
-        <h3>Advisory &amp; Strategic Engagements</h3>
-        <p>Strategic conversations and engagements focused on family legacy, succession, intergenerational stewardship, and institutional continuity.</p>
-        <a class="btn btn-solid" href="mailto:lauren@intheroomwithlegacy.com?subject=Advisory%20Inquiry">Explore Advisory Engagements</a>
+        <h3><span class="ways-number">02 |</span> Advisory &amp; Strategic Engagements</h3>
+        <p class="ways-lead">Helping families, businesses, and institutions build with greater intention.</p>
+        <p>Through her work with IRL Advisors and Miller&sup3; Consulting, Lauren contributes to strategic engagements focused on family enterprise, succession, organizational continuity, economic opportunity, and institutional growth.</p>
+        <p>Her approach connects long-term vision with the practical decisions, structures, and relationships needed to move forward.</p>
+        <a class="ways-cta" href="mailto:lauren@intheroomwithlegacy.com?subject=Advisory%20Engagement%20Inquiry">Explore Advisory Engagements &rarr;</a>
       </article>
       <article class="ways-card">
-        <h3>Media &amp; Partnerships</h3>
-        <p>Podcast interviews, editorial commentary, collaborative programming, and institutional partnerships centered on family, wealth, entrepreneurship, and legacy.</p>
-        <a class="btn btn-solid" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=amedina%40theampragency.com&amp;su=Media%20and%20Partnership%20Inquiry" target="_blank" rel="noopener noreferrer">Explore Partnerships</a>
+        <h3><span class="ways-number">03 |</span> Media &amp; Partnerships</h3>
+        <p class="ways-lead">Collaborating to bring meaningful stories and ideas to wider audiences.</p>
+        <p>Lauren is available for interviews, editorial contributions, brand collaborations, sponsored content, and institutional partnerships aligned with her work in entrepreneurship, culture, family, wealth, and legacy.</p>
+        <p>She brings a distinctive voice, lived experience, and an established history of creating content and conversations that resonate.</p>
+        <a class="ways-cta" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=amedina%40theampragency.com&amp;su=Media%20and%20Partnership%20Inquiry" target="_blank" rel="noopener noreferrer">Explore Partnerships</a>
       </article>
     </div>
   </div>
@@ -591,22 +613,71 @@
 <section id="press">
   <div class="wrap">
     <div class="section-head">
-      <h2>Press &amp; media</h2>
-      <p>National broadcast, business, and academic coverage.</p>
+      <h2>Featured Media &amp; Conversations</h2>
+      <p>From national media and cultural storytelling to conversations on entrepreneurship, economic opportunity, and generational wealth, Lauren&rsquo;s work has reached audiences across industries and institutions.</p>
+      <p>Explore selected features, interviews, and speaking engagements.</p>
     </div>
     <div class="press-grid">
-      <a class="press-item" href="https://www.goodmorningamerica.com/family/story/daughter-pays-tribute-late-father-postcard-gallery-wall-83865821" target="_blank" rel="noopener noreferrer"><h3>Good Morning America / ABC News / NewsNation</h3><p>A viral postcard tribute to her late father &mdash; 3M+ views across platforms and national broadcast coverage on the power of legacy before loss.</p><div class="meta">National broadcast</div></a>
-      <div class="press-item"><h3>Harvard Business School</h3><p>TED-style intergenerational legacy talk alongside her mother, delivered to a standing ovation. Featured in Harvard Business Magazine.</p><div class="meta">Platform speaker</div></div>
-      <a class="press-item" href="https://www.blackenterprise.com/this-heiress-is-on-a-mission-to-help-the-black-community-through-succession-planning/" target="_blank" rel="noopener noreferrer"><h3>Black Enterprise &mdash; Disruptor Summit</h3><p>&ldquo;This Heiress Is On A Mission to Help the Black Community Through Succession Planning.&rdquo; Featured speaker at the Disruptor Summit.</p><div class="meta">Feature &amp; keynote</div></a>
-      <a class="press-item" href="https://www.businessinsider.com/black-heirs-millennials-major-enterprises-family-legacy-generational-wealth-2020-7" target="_blank" rel="noopener noreferrer"><h3>Business Insider</h3><p>&ldquo;Black Heirs: How Millennials Are Carrying Family Legacy and Generational Wealth.&rdquo;</p><div class="meta">Feature story</div></a>
-      <a class="press-item" href="https://www.t-mobile.com/business/small-midsize-business" target="_blank" rel="noopener noreferrer"><h3>T-Mobile for Business</h3><p>Featured speaker alongside T-Mobile EVP Mike Katz on succession planning and generational longevity.</p><div class="meta">Corporate session</div></a>
-      <div class="press-item"><h3>USPS News &mdash; Display of Affection</h3><p>The postcard story that started a national conversation about legacy, love, and what we leave behind.</p><div class="meta">National feature</div></div>
+      <article class="press-item">
+        <div class="meta">Featured Press &amp; Interviews</div>
+        <h3>Good Morning America / ABC News / NewsNation</h3>
+        <p>National coverage of Lauren&rsquo;s father&rsquo;s postcard collection and the family story that resonated with millions.</p>
+        <div class="press-links">
+          <a href="https://www.goodmorningamerica.com/family/story/daughter-pays-tribute-late-father-postcard-gallery-wall-83865821" target="_blank" rel="noopener noreferrer">Read the GMA feature &nearr;</a>
+          <a href="https://news.usps.com/2022/09/23/display-of-affection/" target="_blank" rel="noopener noreferrer">USPS News: Display of Affection &nearr;</a>
+        </div>
+      </article>
+      <article class="press-item">
+        <div class="meta">Featured Press &amp; Interviews</div>
+        <h3>Business Insider</h3>
+        <p>Three Black millennials who are heirs to major enterprises discuss how they&rsquo;re continuing the family legacy.</p>
+        <div class="press-links"><a href="https://www.businessinsider.com/black-heirs-millennials-major-enterprises-family-legacy-generational-wealth-2020-7" target="_blank" rel="noopener noreferrer">Read the feature &nearr;</a></div>
+      </article>
+      <article class="press-item">
+        <div class="meta">Featured Press &amp; Interviews</div>
+        <h3>Black Enterprise</h3>
+        <p>This Heiress Is on a Mission to Help the Black Community Through Succession Planning.</p>
+        <div class="press-links">
+          <a href="https://www.blackenterprise.com/this-heiress-is-on-a-mission-to-help-the-black-community-through-succession-planning/" target="_blank" rel="noopener noreferrer">Read the feature &nearr;</a>
+          <a href="#black-enterprise-engagement">Disruptor Summit speaking engagement &rarr;</a>
+        </div>
+      </article>
+      <article class="press-item">
+        <div class="meta">Selected Speaking &amp; Collaborations</div>
+        <img src="photos/Harvard.jpeg" alt="Lauren and her mother at Harvard Business School" loading="lazy">
+        <h3>Harvard Business School</h3>
+        <p>A mother-daughter presentation exploring wealth through a different lens.</p>
+        <div class="press-links"><a href="#harvard-engagement">View engagement details &rarr;</a></div>
+      </article>
+      <article class="press-item">
+        <div class="meta">Selected Speaking &amp; Collaborations</div>
+        <h3>T-Mobile for Business</h3>
+        <p>A conversation on succession planning, entrepreneurship, and long-term business positioning.</p>
+        <div class="press-links"><a href="https://www.youtube.com/watch?v=RAg9yufn2xE" target="_blank" rel="noopener noreferrer">Watch the session &nearr;</a></div>
+      </article>
+      <article class="press-item">
+        <div class="meta">Featured Press &amp; Interviews</div>
+        <h3>Can&rsquo;t Stay Put</h3>
+        <p>Selected travel and cultural coverage from Essence, HuffPost, Travel Noire, xoNecole, and Blavity.</p>
+        <div class="press-links">
+          <a href="https://www.xonecole.com/worldwide-traveler-choosing-not-live-ordinary-life/" target="_blank" rel="noopener noreferrer">xoNecole &nearr;</a>
+          <a href="https://blavity.com/life-inspirational-explorer-ama-lauren-miller-cant-stay-put" target="_blank" rel="noopener noreferrer">Blavity &nearr;</a>
+        </div>
+      </article>
     </div>
-    <div class="press-also">
-      <p>For media inquiries: <a href="mailto:amedina@theampragency.com">amedina@theampragency.com</a></p>
-      <p>Earlier press, from the Can&rsquo;t Stay Put era &mdash; 25,000+ community, Black millennial movement:</p>
-      <div class="logo-row"><span>Essence</span><span>HuffPost</span><span>Travel Noire</span><span>XoNecole</span><span>Blavity</span></div>
+    <div class="press-interview">
+      <div class="press-video">
+        <iframe src="https://www.youtube.com/embed/wC-Vax3ed-Y?si=SRbMg1DUeufqJmVs" title="Lauren Rosa Miller&rsquo;s family tribute, covered by NewsNation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div>
+        <div class="eyebrow">Featured Interview &middot; NewsNation</div>
+        <h3>A Family Story That Reached Millions</h3>
+        <p>What began as a personal tribute to her father became a story that resonated with more than three million people, drawing national attention to the power of family history, memory, and the stories we preserve.</p>
+        <p>Watch Lauren share the story behind her father&rsquo;s postcard collection and the unexpected response it inspired.</p>
+        <a class="interview-link" href="https://www.youtube.com/watch?v=wC-Vax3ed-Y" target="_blank" rel="noopener noreferrer">Watch the Interview &nearr;</a>
+      </div>
     </div>
+    <p class="press-contact">For media inquiries: <a href="mailto:amedina@theampragency.com">amedina@theampragency.com</a></p>
   </div>
 </section>
 
@@ -632,72 +703,80 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Media kit</div>
-        <h2 style="margin-top:8px;">One-pagers by audience</h2>
+        <div class="eyebrow">Speaking Resources</div>
+        <h2 style="margin-top:8px;">The Right Conversation for Every Room</h2>
       </div>
-      <p>Five audience-specific one-pagers &mdash; each with tailored positioning, speaking topics, and available formats. Pick the room, send the right one.</p>
+      <p>Lauren&rsquo;s speaking engagements are tailored to the audiences, opportunities, and challenges shaping each room.</p>
+      <p>Explore her speaker one-pagers to learn more about the conversations she brings to different organizations and communities.</p>
     </div>
     <div class="kit-grid">
-      <a class="kit-card" href="Corporate%20%26%20Tech/LRM_CorporateOnePager_V1.pdf" target="_blank" rel="noopener">
-        <div class="kit-num">01 &mdash; Corporate &amp; ERG</div>
-        <div class="kit-title">Corporate speaker series, ERGs &amp; L&amp;D</div>
-        <div class="kit-desc">For employee resource groups, women&rsquo;s leadership conferences, corporate retreats, and financial wellness programming.</div>
-        <div class="kit-link">View one-pager &nearr;</div>
-      </a>
-      <a class="kit-card" href="Family%20Enterprise/LRM_FamilyEnterpriseOnePager_V2.pdf" target="_blank" rel="noopener">
-        <div class="kit-num">02 &mdash; Family Enterprise</div>
-        <div class="kit-title">Succession &amp; family business</div>
-        <div class="kit-desc">For family-owned businesses, EO/YPO chapters, ACG convenings, and succession &amp; estate conferences.</div>
-        <div class="kit-link">View one-pager &nearr;</div>
-      </a>
-      <a class="kit-card" href="Wealth%20%26%20Financial/LRM_WealthOnePager_V3.pdf" target="_blank" rel="noopener">
-        <div class="kit-num">03 &mdash; Wealth &amp; Family Office</div>
-        <div class="kit-title">HNW &amp; UHNW legacy architecture</div>
-        <div class="kit-desc">For family offices, private wealth management firms, and estate planning &amp; wealth stewardship convenings.</div>
-        <div class="kit-link">View one-pager &nearr;</div>
-      </a>
-      <a class="kit-card" href="Academic%20%26%20HBCU/LRM_AcademicOnePager_V5.pdf" target="_blank" rel="noopener">
-        <div class="kit-num">04 &mdash; Academic &amp; Next Gen</div>
-        <div class="kit-title">HBCUs &amp; young professionals</div>
-        <div class="kit-desc">For HBCUs, university entrepreneurship programs, student orgs, and commencement &amp; convocation stages.</div>
-        <div class="kit-link">View one-pager &nearr;</div>
-      </a>
-      <a class="kit-card" href="Culture%20%26%20Community/LRM_CultureOnePager_V4.pdf" target="_blank" rel="noopener">
-        <div class="kit-num">05 &mdash; Culture &amp; Community</div>
-        <div class="kit-title">Family reunions &amp; faith communities</div>
-        <div class="kit-desc">For family reunions, Black wealth &amp; culture conferences, faith-based organizations, and sororities &amp; fraternities.</div>
-        <div class="kit-link">View one-pager &nearr;</div>
-      </a>
+      <article class="kit-card">
+        <div class="kit-num">01</div>
+        <h3 class="kit-title">Corporate &amp; ERG</h3>
+        <div class="kit-desc">Leadership, identity, belonging, and building with intention.</div>
+        <div class="kit-actions"><a class="kit-link" href="Corporate%20%26%20Tech/LRM_CorporateOnePager_V1.pdf" target="_blank" rel="noopener noreferrer">View One-Pager &rarr;</a><a class="kit-link" href="Corporate%20%26%20Tech/LRM_CorporateOnePager_V1.pdf" download>Download</a></div>
+      </article>
+      <article class="kit-card">
+        <div class="kit-num">02</div>
+        <h3 class="kit-title">Family Enterprise</h3>
+        <div class="kit-desc">Succession, stewardship, governance, and preparing the next generation.</div>
+        <div class="kit-actions"><a class="kit-link" href="Family%20Enterprise/LRM_FamilyEnterpriseOnePager_V2.pdf" target="_blank" rel="noopener noreferrer">View One-Pager &rarr;</a><a class="kit-link" href="Family%20Enterprise/LRM_FamilyEnterpriseOnePager_V2.pdf" download>Download</a></div>
+      </article>
+      <article class="kit-card">
+        <div class="kit-num">03</div>
+        <h3 class="kit-title">Wealth &amp; Family Office</h3>
+        <div class="kit-desc">Expanding how we define wealth, inheritance, and generational responsibility.</div>
+        <div class="kit-actions"><a class="kit-link" href="Wealth%20%26%20Financial/LRM_WealthOnePager_V3.pdf" target="_blank" rel="noopener noreferrer">View One-Pager &rarr;</a><a class="kit-link" href="Wealth%20%26%20Financial/LRM_WealthOnePager_V3.pdf" download>Download</a></div>
+      </article>
+      <article class="kit-card">
+        <div class="kit-num">04</div>
+        <h3 class="kit-title">Academic &amp; Next Gen</h3>
+        <div class="kit-desc">Identity, entrepreneurship, possibility, and intentional leadership.</div>
+        <div class="kit-actions"><a class="kit-link" href="Academic%20%26%20HBCU/LRM_AcademicOnePager_V5.pdf" target="_blank" rel="noopener noreferrer">View One-Pager &rarr;</a><a class="kit-link" href="Academic%20%26%20HBCU/LRM_AcademicOnePager_V5.pdf" download>Download</a></div>
+      </article>
+      <article class="kit-card">
+        <div class="kit-num">05</div>
+        <h3 class="kit-title">Culture &amp; Community</h3>
+        <div class="kit-desc">Heritage, storytelling, belonging, and the legacies we create together.</div>
+        <div class="kit-actions"><a class="kit-link" href="Culture%20%26%20Community/LRM_CultureOnePager_V4.pdf" target="_blank" rel="noopener noreferrer">View One-Pager &rarr;</a><a class="kit-link" href="Culture%20%26%20Community/LRM_CultureOnePager_V4.pdf" download>Download</a></div>
+      </article>
     </div>
   </div>
 </section>
 
 
-<section class="book">
-  <div class="wrap book-grid">
-    <div>
-      <div class="eyebrow" style="margin-bottom:10px;">Booking</div>
-      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);margin-bottom:16px;white-space:nowrap;">Available for keynotes, panels &amp; workshops.</h2>
-      <p style="color:var(--ink-soft);max-width:56ch;">Keynote (45&ndash;60 min), panel &amp; fireside, half-day workshop, corporate retreat, commencement talk, family reunion keynote, faith community talk, and private advisory sessions.</p>
-      <div class="fmt-row">
-        <span class="pill">Keynote 45&ndash;60 min</span>
-        <span class="pill">Panel &amp; Fireside</span>
-        <span class="pill">Workshop Half-Day</span>
-        <span class="pill">Corporate Retreat</span>
-        <span class="pill">Commencement Talk</span>
-        <span class="pill">Private Advisory Session</span>
-      </div>
-      <div class="book-actions">
-        <a class="btn btn-solid" href="https://form.typeform.com/to/EXQznDku">Book Lauren &mdash; lauren@intheroomwithlegacy.com</a>
-        <a class="btn btn-outline" href="#kit">Download one-pagers</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
+<section id="book" class="book">
   <div class="wrap">
-    <span>In The Room With Legacy&trade; &mdash; The Family Is the First Institution</span>
-    <span>intheroomwithlegacy.com</span>
+    <div class="book-inner">
+      <div class="eyebrow" style="margin-bottom:10px;">Booking</div>
+      <h2>Bring Lauren Into the Room.</h2>
+      <p class="book-subtitle">Let&rsquo;s create a conversation that matters.</p>
+      <p class="book-copy">Whether you&rsquo;re planning a leadership conference, corporate gathering, university program, family enterprise event, or cultural conversation, Lauren brings a distinctive perspective shaped by entrepreneurship, institutional strategy, family history, and lived experience.</p>
+      <p class="book-copy">Available for keynotes, fireside conversations, panels, workshops, and select strategic engagements.</p>
+      <div class="book-actions">
+        <a class="btn btn-solid" href="mailto:lauren@intheroomwithlegacy.com?subject=Speaking%20Engagement%20Inquiry%20%E2%80%94%20Lauren%20Rosa%20Miller">Book Lauren &rarr;</a>
+        <a class="book-media" href="mailto:amedina@theampragency.com?subject=Media%20%26%20Partnership%20Inquiry%20%E2%80%94%20Lauren%20Rosa%20Miller">Media &amp; Partnership Inquiries</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-brand">Lauren Rosa Miller</div>
+    <div>Entrepreneur &middot; Strategist &middot; Speaker &middot; Legacy Architect</div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#press">Media</a>
+      <a href="#book">Book Lauren</a>
+      <a class="social-link" href="https://www.instagram.com/lauren.rosa.miller/" target="_blank" rel="noopener noreferrer" aria-label="Lauren Rosa Miller on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/></svg></a>
+      <a class="social-link" href="https://www.linkedin.com/in/laurenrosamiller/" target="_blank" rel="noopener noreferrer" aria-label="Lauren Rosa Miller on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3.5 9h3v11h-3V9ZM9 9h2.9v1.5h.1c.4-.8 1.4-1.8 3.1-1.8 3.2 0 3.8 2.1 3.8 4.8V20h-3v-5.8c0-1.4 0-3.1-1.9-3.1s-2.2 1.4-2.2 3V20H9V9Z"/></svg></a>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.intheroomwithlegacy.com/" target="_blank" rel="noopener noreferrer">In the Room With Legacy&trade;</a>
+      <a href="https://www.miller3group.com/" target="_blank" rel="noopener noreferrer">Miller&sup3; Consulting</a>
+    </div>
+    <div>&copy; 2026 Lauren Rosa Miller. All Rights Reserved.</div>
   </div>
 </footer>
